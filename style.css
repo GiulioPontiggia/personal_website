@@ -1,0 +1,48 @@
+.text_features {
+    color: #66e313;
+    font-family: "Courier New", Courier, "Lucida Console", "DejaVu Sans Mono", monospace;
+}
+
+.title {
+    font-size: 3em;
+    padding-bottom: 1%;
+}
+
+.subtitle {
+    font-size: 2em;
+    padding-bottom: 0.5%;
+}
+
+.third_subtitle {
+    font-size: 1.5em;
+    padding-bottom: 0.25%;
+    padding-top: 0.25%;
+}
+
+.even_box {
+    background-color: #000000;
+    height: 35%;
+    width: 80%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.odd_box {
+    text-align: right;
+    background-color: #000000;
+    height: 35%;
+    width: 80%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 5%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.text_in_box_even {
+    margin-right: 40%;
+}
+
