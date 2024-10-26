@@ -11,6 +11,11 @@
 .subtitle {
     font-size: 2em;
     padding-bottom: 0.5%;
+    padding-top: 0.5%;
+}
+.experiences_subtitle {
+    font-size: 2em;
+    padding-top: 0.5%;
 }
 
 .third_subtitle {
@@ -28,6 +33,7 @@
     padding-left: 5%;
     margin-top: 5%;
     margin-left: 5%;
+    margin-right: 40%;
 }
 
 .odd_box {
@@ -39,10 +45,28 @@
     padding-bottom: 2%;
     padding-right: 5%;
     margin-top: 5%;
-    margin-left: 5%;
+    margin-left: 40%;
 }
 
 .text_in_box_even {
     margin-right: 40%;
 }
+
+.text_in_box_odd {
+    text-align: left;
+}
+
+.typed::after{
+    content: "i";
+    display: inline-block;
+    width: 0.5rem;
+    background-color: #66e313;
+    animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 
