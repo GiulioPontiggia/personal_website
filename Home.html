@@ -8,7 +8,7 @@
     
     <title>Giulio Pontiggia</title>
 </head>
-<body style="background-color: #000000;">
+<body style="background-color: #000;">
     <!-- Presentation Box -->
     <div class="even_box">
         <!-- Name -->
@@ -18,116 +18,143 @@
         <!-- Presentation text -->
         <div id="auto_type_text" class="text_features text_in_box_even typed">
         </div>
-</div>
+    </div>
 
-    <!-- Education Box -->
-    <div class="text_features odd_box text_in_box_odd">
-        <div class="title">
-            Education
-        </div>
-        <!-- Badoni -->
-        <div class="subtitle">
-            High school diploma Telecom <br>
-        </div>
-        IIS Badoni 2017-2022 <br>
-        Vote: 95/100
-        <!-- Skills -->
-        <div style="padding-bottom: 3%;">
-            <div class="third_subtitle">
-                <u>Skills</u>
+    <div id="hidden_sector" class="hidden_section">
+        <!-- Education Box -->
+        <div class="text_features odd_box text_in_box_odd">
+            <div class="title" style="cursor: pointer;" role="button">
+                <a onclick="appear_paragraph('hidden_section1');">Education</a>
             </div>
-            Python <br>
-            Fiber optics <br>
-            Radio communications <br>
-            Computing <br>
-            Linux <br>
-        </div>
-        <!-- Junior IT Academy -->
-        <div class="subtitle">
-            Junior IT Academy
-        </div>
-        EforHum Networking Academy 09/2022-04/2023 <br>
-        Cisco CCNA 200-301 <br>
-        Introduction to Virtualization, Security and Cybersecurity
-        <div class="third_subtitle">
-            <u>Skills</u>
-        </div style="padding-bottom: 3%">
-            L2 Networking protocol <br>
-            Routing protocols <br>
-            VPN <br>
-            Security basics <br>
-            Paloalto, VmWare Introduction <br>
-        </div>
-    </div>
+            <div id="hidden_section1" class="hidden_section">
+                <!-- Badoni -->
+                <div class="subtitle">
+                    High school diploma Telecom <br>
+                </div>
+                <div class="third_subtitle">
+                    IIS Badoni 2017-2022 (95/100)
+                </div>
+                <!-- Skills -->
+                <div style="padding-bottom: 3%;">
+                    <ul>
+                        <li>Python</li>
+                        <li>Fiber optics</li>
+                        <li>Radio communications</li>
+                        <li>Computing</li>
+                        <li>Linux</li>
+                    </ul>
+                </div>
 
-    <!-- Experiences -->
-    <div class="text_features even_box">
-        <div class="title">Experiences</div>
-        <div class="experiences_subtitle">
-            Network engineer intern  
+                <!-- Junior IT Academy -->
+                <div class="subtitle">
+                    Junior IT Academy
+                </div>
+                <div class="third_subtitle">
+                    EforHum Networking Academy 09/2022-04/2023
+                </div>
+                <!-- Skills -->
+                <div>
+                    <ul>
+                        <li>Cisco CCNA 200-301</li>
+                        <li>L2 Networking protocols</li>
+                        <li>Routing protocols</li>
+                        <li>VPN</li>
+                        <li>Security basics</li>
+                        <li>Paloalto, VmWare Introduction</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="third_subtitle">
-            @ Easynet SPA (2 months)
-        </div>
-        <div class="text_in_box_even">
-            In my brief experience at Easynet SPA I worked on the staging of network devices following
-            the deployment to the clients. I had used Cisco switches and Access points.
-        </div>
-        <div class="experiences_subtitle">
-            Network Implementation Engineer 
-        </div>
-        <div class="third_subtitle">
-            @ NTT DATA (1.5 years)
-        </div>
-        <div class="text_in_box_even">
-            I'm focused on operations and implementation on NTT client's Prysmian SPA.
-            I am working on multiple technologies: Fortigates and Fortimanager, Cisco switches and
-            wireless solutions, Juniper switches.
-            In my position at Prysmian I followed multiple implementation project or infrastructure review
-            while putting my software development skills at use helping my team automating task through
-            the use of Python and automation tools such as ansible.
-        </div>
-    </div>
-    <!-- Certifications -->
-    <div class="text_features odd_box text_in_box_odd">
-        <div class="title">Certifications</div>
-        <!-- CCNA -->
-        <div class="third_subtitle">Cisco CCNA 200-301</div>
-        <div>
-            L2 Basic protocols <br>
-            Routing <br>
-            ISO/OSI and TCP/IP <br>
-            NAT, DHCP, DNS <br>
-            Network Security basics <br>
-        </div>
-        <!-- CCNP -->
-        <div class="third_subtitle">Cisco CCNP ENCOR 350-401</div>
-        <div>
-            OSPF and BGP routing protocols <br>
-            Wireless <br>
-            Network monitoring and assurance <br>
-            AAA, ACLs, 802.1x <br>
-            Virtualization & Automation basics <br>
-        </div>
-        <div class="third_subtitle">Fortinet Cybersecurity associate</div>
-        <div>
-            Fortigate basics
-        </div>
-        <div class="third_subtitle">Fortinet Network Security specialist</div>
-        <div>
-            Fortigate NGFW <br>
-            SSL Inspection <br>
-            Antivirus <br>
-            Web Filtering <br>
-            Fortimanager <br>
-        </div>
-        <div class="third_subtitle">Juniper JNCIA JunOS </div>
-        <div>
-            JunOS basics <br>
-        </div>
-        
 
+        <!-- Experiences -->
+        <div class="text_features even_box">
+            <div class="title" style="cursor: pointer;">
+                <a onclick="appear_paragraph('hidden_section2');">Experiences</a>
+            </div>
+            <div id="hidden_section2" class="hidden_section">
+                <div class="experiences_subtitle">
+                    Network engineer intern  
+                </div>
+                <div class="third_subtitle">
+                    @ Easynet SPA (2 months)
+                </div>
+                <div style="margin-left: 2.3rem;" class="text_in_box_even">
+                    In my brief experience at Easynet SPA I worked on the staging of network devices following
+                    the deployment to the clients. I had used Cisco switches and Access points.
+                </div>
+                <div class="experiences_subtitle">
+                    Network Implementation Engineer 
+                </div>
+                <div class="third_subtitle">
+                    @ NTT DATA (1.5 years)
+                </div>
+                <div style="margin-left: 2.3rem;" class="text_in_box_even">
+                    I'm focused on operations and implementation on NTT client's Prysmian SPA.
+                    I am working on multiple technologies: Fortigates and Fortimanager, Cisco switches and
+                    wireless solutions, Juniper switches.
+                    In my position at Prysmian I followed multiple implementation project or infrastructure review
+                    while putting my software development skills at use helping my team automating task through
+                    the use of Python and automation tools such as ansible.
+                </div>
+            </div>
+        </div>
+        <!-- Certifications -->
+        <div class="text_features odd_box text_in_box_odd">
+            <div class="title" style="cursor: pointer;">
+                <a onclick="appear_paragraph('hidden_section3');">Certifications</a>
+            </div>
+            <div id="hidden_section3" class="hidden_section">
+                <!-- CCNA -->
+                <div class="third_subtitle">Cisco CCNA 200-301</div>
+                <div>
+                    <ul>
+                        <li>L2 Basic protocols</li>
+                        <li>Routing</li>
+                        <li>ISO/OSI and TCP/IP</li>
+                        <li>NAT, DHCP, DNS</li>
+                        <li>Network Security basics</li>
+                    </ul>
+                </div>
+                <!-- CCNP -->
+                <div class="third_subtitle">Cisco CCNP ENCOR 350-401</div>
+                <div>
+                    <ul>
+                        <li>OSPF and BGP routing protocols</li>
+                        <li>Wireless networks</li>
+                        <li>Network monitoring and assurance</li>
+                        <li>AAA, ACLs, 802.1x</li>
+                        <li>Virtualization & Automation basics</li>
+                    </ul>
+                </div>
+                <div class="third_subtitle">Fortinet Cybersecurity associate</div>
+                <div>
+                    <ul>
+                        <li>Fortigate basics</li>
+                    </ul>
+                </div>
+                <div class="third_subtitle">Fortinet Network Security specialist</div>
+                <div>
+                    <ul>
+                        <li>Fortigate NGFW</li>
+                        <li>SSL Inspection</li>
+                        <li>Antivirus</li>
+                        <li>Web Filtering</li>
+                        <li>Fortimanager</li>
+                    </ul>
+                </div>
+                <div class="third_subtitle">Juniper JNCIA JunOS </div>
+                <div>
+                    <ul>
+                        <li>JunOS basics</li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+
+        </div>   
     </div>
+    
     
 </body>
 </html>

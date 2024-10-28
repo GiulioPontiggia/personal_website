@@ -22,11 +22,11 @@
     font-size: 1.5em;
     padding-bottom: 0.25%;
     padding-top: 0.25%;
+    padding-left: 0.5rem;
 }
 
 .even_box {
     background-color: #000000;
-    height: 35%;
     width: 80%;
     padding-top: 2%;
     padding-bottom: 2%;
@@ -39,11 +39,10 @@
 .odd_box {
     text-align: right;
     background-color: #000000;
-    height: 35%;
-    width: 80%;
+    width: 50%;
     padding-top: 2%;
     padding-bottom: 2%;
-    padding-right: 5%;
+    padding-left: 5%;
     margin-top: 5%;
     margin-left: 40%;
 }
@@ -54,6 +53,10 @@
 
 .text_in_box_odd {
     text-align: left;
+}
+
+ul {
+    margin-top: 0rem;
 }
 
 .typed::after{
@@ -69,4 +72,16 @@
     50% { opacity: 0; }
 }
 
+.hidden_section {
+    display: none;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.4s ease;
+}
+
+.dropdown-open {
+    display: block; /* Visualizza l'elemento */
+    height: auto;   /* Altezza dinamica per adattarsi al contenuto */
+    overflow: hidden;
+}
 
