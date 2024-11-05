@@ -22,7 +22,7 @@ function type() {
 
     if(textLength < text.length+1) {
         // Change timeout to 50 
-        setTimeout('type()', 0);
+        setTimeout('type()', 50);
     } else {
         document.getElementById("hidden_text").classList.remove("hidden_section");
         document.getElementById("hidden_sector").classList.remove("hidden_section");
