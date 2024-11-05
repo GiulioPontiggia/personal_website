@@ -7,7 +7,7 @@ This website is hosted on AWS and I'm thrilled to share my projects and document
 
 Even though I love my job, life isn't all about tech. 
 In my free time you'll find me working out, reading, exploring new places and digging into my other big interest - finance.
-Thanks for stopping by, I hope you enjoy exploring my site as much as I enjoy building it`
+Thanks for stopping by, I hope you enjoy exploring my website as much as I enjoy building it`
 
 function type() {
     let textChar = text.charAt(textLength++);
