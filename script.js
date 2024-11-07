@@ -3,7 +3,7 @@
 let textLength = 0;
 let text = `Hello, I am a Network and security engineer at NTT.
 I am really passionate about IT, especially networks, coding and working with Linux.
-This website is hosted on AWS and I'm thrilled to share my projects and document my cloud journey here. 
+This website is hosted on AWS and I'm thrilled to share my projects and document my IT journey here. 
 
 Even though I love my job, life isn't all about tech. 
 In my free time you'll find me working out, reading, exploring new places and digging into my other big interest - finance.

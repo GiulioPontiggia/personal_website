@@ -85,3 +85,45 @@ ul {
     overflow: hidden;
 }
 
+.links {
+    cursor: pointer; 
+    text-decoration: underline; 
+    color: #66e313;
+}
+
+
+/* Custom classes for Projects page */
+
+.parent_box {
+    margin-top: 7%;
+}
+
+.row {
+    display: flex;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.c1 {
+    flex: 25%;
+    text-align: center;
+    border: solid white;
+    border-width: 1px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.c2 {
+    flex: 75%;
+    border: solid white;
+    border-width: 1px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%; 
+    padding-right: 2%;
+}
+
+.project_description {
+    padding-left: 2%; 
+    padding-right: 2%;
+}
+
