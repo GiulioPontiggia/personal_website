@@ -1,0 +1,64 @@
+body {
+    padding-bottom: 10rem;
+}
+
+.row {
+    display: flex;
+}
+
+.c_external {
+    flex: 25%;
+}
+
+.c_central {
+    padding-top: 3rem;
+    flex: 50%;
+}
+
+.text_features {
+    color: #66e313;
+    font-family: "Courier New", Courier, "Lucida Console", "DejaVu Sans Mono", monospace;
+}
+
+.title {
+    font-size: 3em;
+}
+
+.subtitle {
+    font-size: 2em;
+    padding-bottom: 0.5%;
+    padding-top: 4%;
+    padding-bottom: 2%;
+}
+
+.third_subtitle {
+    font-size: 1.5em;
+    padding-bottom: 0.25%;
+    padding-top: 0.25%;
+}
+
+.image_description{
+    color: grey;
+    font-size: 0.9rem;
+    padding-bottom: 2rem;
+}
+
+img {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.image {
+    padding-top: 2rem;
+}
+
+pre {
+    background-color: lightgray;
+    color: black;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 0.2rem;
+    white-space: pre-line;
+}

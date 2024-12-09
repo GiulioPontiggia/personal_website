@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Build a website in AWS</title>
+</head>
+<body style="background-color: black;">
+    <div class="row">
+        <div class="c_external"></div>
+        <div class="c_central text_features">
+            <div class="title">Host a website on AWS from zero</div>
+            <div>
+                <!-- Register a domain on Route 53 section-->
+                <div class="subtitle">Register a domain on Route 53</div>
+                <div>To run a working website you need a domain from where clients can reach it typing the fqdn on the research bar of their browser, you can do that buying and registering a domain on Route53.</div>
+                <br>
+                <div>Open AWS console and enter Route 53 <br>
+                    Click on domain registration to register you brand new domain</div>
+                <img class="image" src="image0.png" alt="">
+                <div class="image_description">1.1 Route 53 dashboard - Domain registration</div>
+                <div>
+                    In the top right of the screen click on register domains and enter your desired 2LD (in example.com example is the 2LD). <br>
+                    <br>
+                    Once found your desired domain proceed with the checkout and fill the contacts information. <br>
+                    <br>
+                    Once done you can go back to the Route 53 dashboard and click on hosted zone <br>
+                    Here you need to create the hosted zone for your new domain where we’ll configure all the DNS records needed for your website.
+                </div>
+                <img class="image" src="image1.png" alt="">
+                <div class="image_description">1.2 Create hosted zone</div>
+                <div>
+                    Input the domain name just created, enter a description if you want and create the hosted zone. <br>
+                    After that you should see it in the list of hosted zones in Route 53.
+                </div>
+            </div>
+            <!-- Certificates requests section -->
+            <div>
+                <div class="subtitle">Request the certificates with Certificate manager</div>
+                <div>
+                    To avoid the browser alerts saying that the website is not secure you need to request certificates, in that way clients can secure the connection to the server that will host your website. <br>
+                    <br>
+                    Make sure that at the top right of the screen the selected region is us-east-1. <br> We will create the certificates in this region as CloudFront (another AWS service we’ll user later) manages certificates in this region. <br>
+                    If you plan to not use cloudfront you can skip this task.
+                </div>
+                <img class="image" src="image2.png" alt="">
+                <div class="image_description">2.1 Change region to us-east-1</div>
+                <div>
+                    In Certificate manager’s dashboard request certificate and click next 
+                    <br> <br>
+                    Enter the domain name you chose before, it’s suggested to enter it with www. and without at the beginning of the fqdn (ex. www.example.com and example.com)
+                    <br> <br>
+                    You might need to wait some time for the next steps as the certificate will need to be validated.
+                    <br> <br>
+                    Once you see the certificate status as “issued” you can click on it to enter the configuration and click on “Create records in Route 53” and create the records.
+                    <br> <br>
+                    Now if you go back to route 53, enter your hosted zones and click on the previously created hosted zone you’ll see 2 new CNAME records</div>
+            </div>
+            <!-- Create the S3 bucket section -->
+            <div>
+                <div class="subtitle">Create the S3 bucket</div>
+                <div>
+                    The S3 bucket for your website will store the website’s code images and all the files that will be needed for the website.
+                    <br><br>
+                    Enter the dashboard of S3 and create a new bucket, as name enter the domain of your website (ex. example.com) and unselect “block all public access” as the files in the bucket needs to be accessed for the website to be working.
+                    <br><br>
+                    Enter the bucket just created and click on properties
+                </div>
+                <img class="image" src="image3.png" alt="">
+                <div class="image_description">3.1 S3 bucket properties</div>
+                <div>
+                    Scroll down to the end and you’ll find a “static website hosting” section, click on edit:
+                    <ul>
+                        <li>set static website hosting to enable</li>
+                        <li>set “host a static website”</li>
+                        <li>enter the index document name (the html file that will be shown when navigating to the website)</li>
+                    </ul>
+                    <br>
+                    In the page of the S3 bucket navigate to permissions, select bucket policy and enter this policy replacing <your-domain> with the name of your website’s domain
+                </div>
+                <pre>
+                    <div>
+                        {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "AddPerm",
+                                    "Effect": "Allow",
+                                    "Principal": "*",
+                                    "Action": "s3:GetObject",
+                                    "Resource": "arn:aws:s3:::<your-domain>/*"
+                                }
+                            ]
+                        }
+                    </div>
+                </pre>
+                <div>
+                    This policy make sure that everyone can access the content of this bucket to access your website, this means you don’t want anything private to be on that S3 bucket.
+                    <br><br>
+                    Once done the “Static website hosting” section will look something like this:
+                </div>
+                <img src="image4.png" class="image">
+                <div class="image_description">3.2 S3 bucket static website hosting overview</div>
+                <div>
+                    Now you can upload the files for your website in the bucket and you can test them accessing the web page through the URL you see at the bottom of the “Static website hosting” section.
+                </div>
+            </div>
+
+            <!-- Create cloudfront distribution section -->
+            <div>
+                <div class="subtitle">Configure cloudfront distribution</div>
+                <div>
+                    To help the distribution of your website across the world increasing performances and security you have to create a cloudfront distribution.
+                    <br><br>
+                    Open Cloudfront dashboard and create a new distribution
+                    <ul>
+                        <li>as origin domain and name you should put the domain of your S3 bucket</li>
+                        <li>in viewer protocol policy choose “redirect HTTP to HTTPS”</li>
+                        <li>select “CachingOptimized” as Cache policy</li>
+                    </ul>
+                    <img class="image" src="image5.png" alt="">
+                    <div class="image_description">4.1 Distribution's cache key and origin configuration</div>
+                    <div>Finally create the distribution and now you have the website working.</div>
+                </div>
+            </div>
+
+            <!-- CodePipeline section -->
+            <div>
+                <div class="subtitle">GitHub integration with codepipeline (optional)</div>
+                <div>
+                    This section helps you implement CodePipeline with your S3 bucket and the git repository of your website so that when committing to your repository the changes are automatically updated to your S3 bucket and consequentially to your website.
+                </div>
+                <br>
+                <div>
+                    Open Codepipeline from AWS Console and click Create Pipeline.
+                    <ul>
+                        <li>Select custom pipeline</li>
+                        <li>Choose the name of the pipeline and click Next</li>
+                        <li>Choose your source provider (in my case Github via App)</li>
+                        <li>Click connect to GitHub</li>
+                        <li>Enter the name of the connection and then Login with your Github credentials</li>
+                        <li>Click connect</li>
+                        <li>Select the repository and branch name</li>
+                        <li>Skip build stage</li>
+                    </ul>
+                    In the deploy stage
+                    <ul>
+                        <li>Select Amazon S3 as Deploy provider</li>
+                        <li>Enter the S3 bucket and select “Extract file before deploy”</li>
+                    </ul>
+                    <img class="image" src="image6.png" alt="">
+                    <div class="image_description">5.1 Deploy stage codepipeline configuration</div>
+                    Click Next and create pipeline and your GitHub repository is synced with your S3 bucket in AWS.
+                </div>
+            </div>
+        </div>
+        <div class="c_external"></div>
+
+    </div>
+</body>
+</html>
