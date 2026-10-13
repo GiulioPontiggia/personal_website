@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del codice
+        uses: actions/checkout@v4
+
+      - name: Configura GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Carica artefatti
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Percorso dei file statici da pubblicare.
+          # Usa '.' se HTML/CSS/JS sono nella root, oppure './dist' o './build' se usi un framework (React, Vue, Vite).
+          path: '.'
+
+      - name: Deploy su GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
